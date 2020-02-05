@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="col">
+    <mat-card>
+      <form (submit)="onSubmit()" [formGroup]="form">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Title" formControlName="title" type="text" name="title">
+          <mat-error *ngIf="form.controls.title.invalid && (form.controls.title.dirty || form.controls.title.touched)">Title is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <textarea matInput placeholder="Details" formControlName="details" type="text" name="details"></textarea>
+          <mat-error *ngIf="
+              form.controls.details.invalid &&
+              form.controls.details.errors.required &&
+              (form.controls.details.dirty || form.controls.details.touched)">
+            Details required
+          </mat-error>
+        </mat-form-field>
+
+        <section class="full-width">
+          <h3>level of coolness</h3>
+          <h4>{{form.controls['coolLevel'].value}}/100 </h4>
+          <mat-slider class="full-width" min="0" max="100" thumbLabel name="coolLevel" formControlName="coolLevel" required></mat-slider>
+          <mat-error *ngIf="form.controls.coolLevel.invalid && (form.controls.coolLevel.dirty || form.controls.coolLevel.touched) && form.controls.coolLevel.errors.required">
+            cool-level is required
+          </mat-error>
+        </section>
+
+        <section class="full-width">
+          <mat-slide-toggle
+            class="example-margin"
+            color="primary"
+            formControlName="approved"
+          >
+            Approved
+          </mat-slide-toggle>
+        </section>
+
+        <section class="full-width">
+          <button type="button" mat-button (click)="onCancel()" >Cancel</button>
+          <button type="button" mat-button color="warn" [disabled]="!data" (click)="onDelete()">DELETE</button>
+          <button type="submit" mat-button color="primary" [disabled]="!form.valid">Save</button>
+        </section>
+      </form>
+    </mat-card>
+  </div>
+</div>
