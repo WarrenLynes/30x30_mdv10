@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Computer, ComputersService } from '@mdv10/core-data';
 import { ComputersFacade } from '@mdv10/core-state';
 import { Observable, Subject } from 'rxjs';
@@ -18,7 +18,7 @@ export class ComputersComponent implements OnInit, OnDestroy {
 
   constructor(
     private facade: ComputersFacade,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {

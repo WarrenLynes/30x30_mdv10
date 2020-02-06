@@ -39,7 +39,7 @@ export class ComputersEffects {
   load$ = createEffect(
     () => this.actions$.pipe(
       ofType(load),
-      tap(({type}) => this.store.dispatch(addLoad({loadId: type}) )),
+      tap(({type}) => this.store.dispatch(addLoad({loadId: type.split('[REQUEST]')[0]}) )),
       //DELAY TO NOTICE AWESOME PROGRESS BAR
       delay(1500),
       exhaustMap(() =>
@@ -54,6 +54,7 @@ export class ComputersEffects {
   save$ = createEffect(
     () => this.actions$.pipe(
       ofType(save),
+      tap(({type}) => this.store.dispatch(addLoad({loadId: type.split('[REQUEST]')[0]}) )),
       //DELAY TO NOTICE AWESOME PROGRESS BAR
       delay(1500),
       exhaustMap(({type, entity}) =>
@@ -68,6 +69,7 @@ export class ComputersEffects {
   create$ = createEffect(
     () => this.actions$.pipe(
       ofType(create),
+      tap(({type}) => this.store.dispatch(addLoad({loadId: type.split('[REQUEST]')[0]}) )),
       //DELAY TO NOTICE AWESOME PROGRESS BAR
       delay(1500),
       exhaustMap(({type, entity}) =>
@@ -82,6 +84,7 @@ export class ComputersEffects {
   delete$ = createEffect(
     () => this.actions$.pipe(
       ofType(deleteComputer),
+      tap(({type}) => this.store.dispatch(addLoad({loadId: type.split('[REQUEST]')[0]}) )),
       delay(1500),
       switchMap(({type, entity}) =>
         this.service.delete(entity.id).pipe(

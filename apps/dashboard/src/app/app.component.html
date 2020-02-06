@@ -42,14 +42,13 @@
   </mat-sidenav>
 
   <mat-progress-bar
-    *ngIf="!!(loading$ | async)"
-    class="app-progress"
+    *ngIf="loading"
+    class="computers-progress"
     color="accent"
     mode="indeterminate"
   ></mat-progress-bar>
 
   <div class="app-content">
-
     <router-outlet></router-outlet>
   </div>
 

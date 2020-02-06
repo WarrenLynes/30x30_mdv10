@@ -25,7 +25,7 @@ export class ListComponent implements OnInit {
     this.data$ = this.facade.data$.pipe( map(data => {
       this.data = data;
       return data;
-    }) );
+    }));
     this.facade.load();
   }
 
