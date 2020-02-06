@@ -1,9 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CustomValidators } from '../../custom-validators';
-import { AuthFacade } from '@mdv10/core-state';
 import { Subject } from 'rxjs';
+import { AuthFacade } from '@mdv10/core-state';
+import { CustomValidators } from '../custom-validators';
 
 @Component({
   selector: 'mdv10-login',

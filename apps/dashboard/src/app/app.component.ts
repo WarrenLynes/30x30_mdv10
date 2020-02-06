@@ -16,23 +16,24 @@ export class AppComponent implements OnInit{
     {path: '', title: 'home', icon: 'home'}
   ];
 
-  get authenticated() {
-    return this.authFacade.authenticated$;
-  }
-
-  get loading$() {
-    return this.authFacade.loading$
-  }
-
   constructor(
     private facade: AppFacade,
     private authFacade: AuthFacade,
+    private appFacade: AppFacade,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.initialized$ = this.facade.initialized$;
     this.facade.initialize();
+  }
+
+  get authenticated() {
+    return this.authFacade.authenticated$;
+  }
+
+  get loading$() {
+    return this.appFacade.loading$
   }
 
   onLogout() {

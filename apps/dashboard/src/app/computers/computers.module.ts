@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { MaterialModule } from '@mdv10/material';
 import { FormComponent } from './form/form.component';
-import { MatSlideToggleModule } from '@angular/material';
 
 
 
@@ -15,11 +14,9 @@ import { MatSlideToggleModule } from '@angular/material';
     RouterModule.forChild([{
       path: '',
       component: ComputersComponent,
-      children: [
-        { path: '', component: ListComponent }
-      ]
+      children: [ { path: '', component: ListComponent } ]
     }]),
-    MaterialModule, MatSlideToggleModule
+    MaterialModule
   ],
   exports: [ComputersComponent],
   entryComponents: [FormComponent]

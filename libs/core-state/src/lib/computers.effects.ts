@@ -17,6 +17,7 @@ import { catchError, delay, exhaustMap, map, switchMap, tap } from 'rxjs/operato
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { SnackbarService } from './snackbar.service';
+import { addLoad, removeLoad } from './app.actions';
 
 @Injectable()
 export class ComputersEffects {
@@ -38,6 +39,7 @@ export class ComputersEffects {
   load$ = createEffect(
     () => this.actions$.pipe(
       ofType(load),
+      tap(({type}) => this.store.dispatch(addLoad({loadId: type}) )),
       //DELAY TO NOTICE AWESOME PROGRESS BAR
       delay(1500),
       exhaustMap(() =>
@@ -89,6 +91,12 @@ export class ComputersEffects {
       )
     )
   );
+
+  onLoadSuccess$ = createEffect(
+    () => this.actions$.pipe(
+      ofType(deleteSuccess, saveSuccess, createSuccess, loadSuccess),
+      map(({type}) => removeLoad({loadId: type.split('[SUCCESS]')[0]})),
+    ));
 
   onSuccess$ = createEffect(
     () => this.actions$.pipe(

@@ -15,7 +15,10 @@ import {
   MatSnackBarModule,
   MatTableModule,
   MatToolbarModule,
-  MatButtonToggleModule, MatDialogModule, MatProgressBarModule
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatProgressBarModule,
+  MatSlideToggleModule
 } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -38,23 +41,19 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatCardModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
     MatProgressBarModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
-    MatInputModule,
     MatListModule,
     MatMenuModule,
     MatSelectModule,
@@ -64,14 +63,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatCardModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule {}
